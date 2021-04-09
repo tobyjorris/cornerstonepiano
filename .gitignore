@@ -11,9 +11,6 @@
 # production
 /build
 
-# Cloud Functions
-/functions
-
 # misc
 .DS_Store
 .env
