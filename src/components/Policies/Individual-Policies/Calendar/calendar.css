@@ -1,0 +1,9 @@
+.calendar-item {
+    list-style-type: none;
+}
+
+.calendar-print {
+    background: rgb(44, 66, 44) !important;
+    outline-style: none!important;
+    border: none!important;
+}

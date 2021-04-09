@@ -1,0 +1,33 @@
+.contactBackground {
+    background: rgb(44, 66, 44);
+    height: auto;
+    padding: 50px 0;
+}
+
+.contactText {
+    height: auto;
+    align-self: center;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.contactForm {
+    color: white;
+}
+
+.error-message {
+    color: red;
+}
+
+@media (max-width: 576px) {
+    .contactForm {
+        margin-top: 10px;
+    }
+
+    .contactBackground {
+        padding: 20px 0;
+    }
+}
+
+@media (min-width: 993px) {
+}

@@ -1,0 +1,94 @@
+.experience_background {
+    background: rgb(44, 66, 44);
+}
+
+.experience_box {
+    color: white;
+    border: 2px solid lightgrey;
+    border-radius: 3px;
+    margin: 0 0 25px 0;
+    height: 100%;
+    padding: 10px;
+}
+
+.experience_body {
+    text-align: start;
+    margin: 0 10px;
+}
+
+.experience_title {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.experience_header {
+    color: white;
+}
+
+.experience {
+    padding-top: 50px;
+}
+
+.experience-hr {
+    border: 1px solid white;
+    margin: 10px 0;
+
+}
+
+.experience_row {
+    padding-bottom: 50px;
+}
+
+@media (max-width: 576px) {
+    .experience_box {
+        margin: 10px 0;
+        height: auto;
+    }
+
+    .experience_row {
+        padding-bottom: 30px;
+    }
+
+    .experience_body {
+        font-size: .9rem;
+    }
+
+    .experience {
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 769px) {
+    .experience_box {
+        margin: 20px 0;
+        height: auto;
+    }
+
+    .experience_row {
+        padding-bottom: 30px;
+    }
+
+    .experience {
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 893px) {
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .experience_box {
+        margin: 20px 0;
+        height: auto;
+    }
+
+    .experience_row {
+        padding-bottom: 30px;
+    }
+
+    .experience {
+        padding-top: 30px;
+    }
+
+}
+

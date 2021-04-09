@@ -1,0 +1,31 @@
+#bio_picture {
+    width: 300px;
+    height: 310px;
+}
+
+.policies_background {
+    height: auto;
+    padding: 30px 0;
+}
+
+.policies {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
+    .policies {
+        margin-top: 0;
+        font-size: 1rem;
+    }
+
+    #bio_picture {
+        width: 200px !important;
+        height: 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    .policies_background {
+        padding-top: 0;
+    }
+}
