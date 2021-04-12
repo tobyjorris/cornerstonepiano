@@ -96,7 +96,7 @@ export default function CustomizedTabs() {
                         value={value}
                         onChange={handleChange}
                         aria-label="styled tabs scrollable force"
-                        variant={screenWidth.width > "993" ? "null" : "scrollable"}
+                        variant={screenWidth.width > "993" ? "standard" : "scrollable"}
                         scrollButtons={screenWidth.width < "993" ? "on" : "off"}
                         centered={screenWidth.width > "993"}
                         >

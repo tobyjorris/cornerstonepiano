@@ -6,8 +6,7 @@ const Calendar = () => {
     return (
         <Container>
             <h3>Calendar 2020-2021</h3>
-            <ol>
-                <li className="calendar-item"><strong>September 14, 2020 – May 25, 2021:</strong> School Year Session
+            <h5><strong>September 14, 2020 – May 25, 2021:</strong> School Year Session
                     <ol>
                         <li className="calendar-item">
                             <strong>Friday, Nov. 13, 2020, 6:30-7:30: </strong>
@@ -48,8 +47,7 @@ const Calendar = () => {
                             no food or drink, (but it could be a good time for gift music purchases.)</p>
                         </li>
                     </ol>
-                </li>
-            </ol>
+                </h5>
             <Button className="calendar-print" >Print Calendar</Button>
         </Container>
     )
