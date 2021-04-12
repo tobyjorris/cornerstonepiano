@@ -39,6 +39,7 @@ const NameForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(token)
         const manuallyRetrieveToken = executeRecaptcha();
         const errors = CheckFormValidity(contactInfo);
         if (errors.length > 0) {
