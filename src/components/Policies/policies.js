@@ -1,9 +1,11 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import React, {useEffect} from 'react';
+import {makeStyles, useTheme, withStyles} from '@material-ui/core/styles';
+import SwipeableViews from "react-swipeable-views/src";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PoliciesDetails from "./Policies-Details/policies-details";
+import debounce from "../../utils/debounce";
 
 function a11yProps(index) {
     return {
@@ -41,7 +43,6 @@ const StyledTab = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
         width: '100%',
         margin: 0,
         paddingBottom: '15px',
@@ -51,47 +52,72 @@ const useStyles = makeStyles((theme) => ({
     },
     details: {
         backgroundColor: 'white',
+        flexGrow: 1,
     },
     tabsRoot: {
         paddingBottom: '15px',
-    }
+    },
 }));
 
 export default function CustomizedTabs() {
     const classes = useStyles();
+    const theme = useTheme();
+    const [screenWidth, setScreenWidth] = React.useState({width: window.innerWidth});
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    const handleChangeIndex = (index) => {
+        setValue(index);
+    };
+
+    useEffect(() => {
+        const debouncedHandleResize = debounce(function handleResize() {
+            setScreenWidth({
+                width: window.innerWidth
+            })
+        }, 500)
+
+        window.addEventListener('resize', debouncedHandleResize)
+
+        return _ => {
+            window.removeEventListener('resize', debouncedHandleResize)
+
+        }
+    })
+
     return (
-            <div className={classes.root} >
+            <div>
                 <AppBar position="static" className={classes.appBar} id="app-bar">
                     <StyledTabs
-                        className={classes.tabsRoot}
+                        className={classes.root}
                         value={value}
                         onChange={handleChange}
                         aria-label="styled tabs scrollable force"
-                        variant="scrollable"
-                        scrollButtons="off"
-                        indicatorColor="primary"
-                        centered
+                        variant={screenWidth.width > "993" ? "null" : "scrollable"}
+                        scrollButtons={screenWidth.width < "993" ? "on" : "off"}
+                        centered={screenWidth.width > "993"}
                         >
                         <StyledTab label="Calendar" {...a11yProps(0)} />
-                        <StyledTab label="Lesson Day" {...a11yProps(1)} />
+                        <StyledTab label="Lessons" {...a11yProps(1)} />
                         <StyledTab label="Equipment" {...a11yProps(2)} />
-                        <StyledTab label="Tuition and Fees" {...a11yProps(3)} />
-                        <StyledTab label="Summer Sessions" {...a11yProps(4)} />
-                        <StyledTab label="Registration Form" {...a11yProps(5)} />
+                        <StyledTab label="Tuition" {...a11yProps(3)} />
+                        <StyledTab label="Summer" {...a11yProps(4)} />
+                        <StyledTab label="Registration" {...a11yProps(5)} />
                     </StyledTabs>
                 </AppBar>
-                <PoliciesDetails className={classes.details} value={value} index={0} componentname='calendar' />
-                <PoliciesDetails className={classes.details} value={value} index={1} componentname='lesson'  />
-                <PoliciesDetails className={classes.details} value={value} index={2} componentname='tools'  />
-                <PoliciesDetails className={classes.details} value={value} index={3} componentname='fees'  />
-                <PoliciesDetails className={classes.details} value={value} index={4} componentname='summer'  />
-                <PoliciesDetails className={classes.details} value={value} index={5} componentname='registration'  />
+                <SwipeableViews axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                                index={value}
+                                onChangeIndex={handleChangeIndex}>
+                    <PoliciesDetails className={classes.details} value={value} index={0} componentname='calendar' />
+                    <PoliciesDetails className={classes.details} value={value} index={1} componentname='lesson'  />
+                    <PoliciesDetails className={classes.details} value={value} index={2} componentname='tools'  />
+                    <PoliciesDetails className={classes.details} value={value} index={3} componentname='fees'  />
+                    <PoliciesDetails className={classes.details} value={value} index={4} componentname='summer'  />
+                    <PoliciesDetails className={classes.details} value={value} index={5} componentname='registration'  />
+                </SwipeableViews>
             </div>
     );
 }
