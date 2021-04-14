@@ -20,7 +20,6 @@ exports.checkRecaptcha = functions.https.onRequest((req, res) => {
       };
       axios(config)
           .then( (response) => {
-            console.log('index.js:25 Axios Response', response)
             if (response.data.score <= '0.5') {
               res.status(401).send({error: 'Sorry, looks like you might be a robot! Please try again'})
             } else if (response.data.score > '0.5') {
@@ -42,9 +41,7 @@ exports.checkRecaptcha = functions.https.onRequest((req, res) => {
               mg.messages().send(data, function (error, body) {
                 if (error) {
                   res.status(500).send({error: 'Error in Mailgun API'})
-                  console.log('index.js:37 Error', error)
                 } else {
-                  console.log('index.js:39 Body', body)
                   res.status(200).send({message: 'Contact Form Submitted Successfully'})
                 }
               })
