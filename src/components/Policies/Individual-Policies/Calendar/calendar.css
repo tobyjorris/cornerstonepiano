@@ -1,8 +1,12 @@
 .calendar-item {
     list-style-type: none;
-    text-align: justify;
+    text-align: start;
     margin: 15px 0;
     font-size: 1rem;
+}
+
+.calendar-list {
+    padding: 0 15px;
 }
 
 .calendar-print {
@@ -10,4 +14,10 @@
     outline-style: none!important;
     border: none!important;
     margin-bottom: 15px;
+}
+
+@media (max-width: 556px) {
+    .calendar-item {
+        font-size: .9rem;
+    }
 }

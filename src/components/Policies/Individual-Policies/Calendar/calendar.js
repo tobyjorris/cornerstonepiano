@@ -7,7 +7,7 @@ const Calendar = () => {
         <Container>
             <h3>Calendar 2020-2021</h3>
             <h5><strong>September 14, 2020 – May 25, 2021:</strong> School Year Session
-                    <ol>
+                    <ol className="calendar-list">
                         <li className="calendar-item">
                             <strong>Friday, Nov. 13, 2020, 6:30-7:30: </strong>
                             Student mini-recital, in my living room

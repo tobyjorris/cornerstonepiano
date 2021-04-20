@@ -23,7 +23,6 @@ const StyledTabs = withStyles({
             maxWidth: 60,
             width: '100%',
             backgroundColor: 'white',
-            padding: '10px'
         },
     },
 })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
