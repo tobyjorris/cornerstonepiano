@@ -9,11 +9,8 @@
     padding: 0 15px;
 }
 
-.calendar-print {
-    background: rgb(44, 66, 44) !important;
-    outline-style: none!important;
-    border: none!important;
-    margin-bottom: 15px;
+.calendar {
+    padding-bottom: 15px;
 }
 
 @media (max-width: 556px) {

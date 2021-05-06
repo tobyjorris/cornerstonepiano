@@ -4,7 +4,7 @@ import './calendar.css';
 
 const Calendar = () => {
     return (
-        <Container>
+        <Container className="calendar">
             <h3>Calendar 2020-2021</h3>
             <h5><strong>September 14, 2020 – May 25, 2021:</strong> School Year Session
                     <ol className="calendar-list">
@@ -48,7 +48,6 @@ const Calendar = () => {
                         </li>
                     </ol>
                 </h5>
-            <Button className="calendar-print" >Print Calendar</Button>
         </Container>
     )
 }
